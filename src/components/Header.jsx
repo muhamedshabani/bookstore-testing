@@ -7,7 +7,6 @@ const NAV = [
   { to: '/', label: 'Home', end: true },
   { to: '/shop', label: 'Shop' },
   { to: '/authors', label: 'Authors' },
-  { to: '/admin', label: 'Admin' },
 ]
 
 const navClass = ({ isActive }) =>
