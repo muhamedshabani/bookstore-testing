@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Design tokens, adapted from the Flatlogic ecommerce template.
+   The template's terracotta (#bd744c) is kept for decoration; text and
+   buttons use a darker shade so they meet 4.5:1 contrast on white. */
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #262626;
+  --color-ink-soft: #595959;
+  --color-muted: #6b6b6b;
+  --color-line: #e5e5e5;
+  --color-surface: #f5f5f5;
+  --color-surface-strong: #ececec;
+
+  --color-brand: #bd744c;
+  --color-brand-strong: #a0593a;
+  --color-brand-deep: #874a30;
+  --color-brand-tint: #f6ece6;
+
+  --color-danger: #b42318;
+  --color-danger-tint: #fdecea;
+  --color-success: #1b7a43;
+  --color-success-tint: #e8f5ee;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans text-base leading-relaxed;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-strong;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 px-6 text-sm font-semibold uppercase tracking-wider transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility btn-outline {
+  @apply btn border border-brand-strong text-brand-strong hover:bg-brand-strong hover:text-white;
+}
+
+@utility btn-solid {
+  @apply btn bg-brand-strong text-white hover:bg-brand-deep;
+}
+
+@utility btn-ghost {
+  @apply btn border border-line text-ink hover:border-ink;
+}
+
+@utility btn-danger {
+  @apply btn bg-danger text-white hover:bg-[#912018];
+}
+
+@utility field-label {
+  @apply mb-1.5 block text-sm font-semibold text-ink;
+}
+
+@utility field-input {
+  @apply block min-h-11 w-full border border-line bg-white px-3 text-base text-ink transition-colors placeholder:text-muted hover:border-ink-soft focus:border-brand-strong;
+}
+
+@utility field-error {
+  @apply mt-1.5 text-sm text-danger;
+}
+
+@utility section-title {
+  @apply text-2xl font-bold text-ink sm:text-3xl;
+}
+
+@utility kicker {
+  @apply text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
